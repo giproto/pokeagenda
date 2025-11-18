@@ -1,0 +1,8 @@
+<!-- Card de tipo e habilidade do Pokemón -->
+@if (icon)
+{
+    <div class="type-ability" [ngClass]="'background-bold-type-' + type()">
+        <fa-icon [icon]="icon" />
+        <p>{{ type() | titlecase }}</p>
+    </div>
+}

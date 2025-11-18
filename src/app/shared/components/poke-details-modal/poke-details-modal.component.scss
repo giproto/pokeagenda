@@ -1,0 +1,100 @@
+.background-modal
+{
+    background-color: black;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    opacity: 0.8;
+    top: 0;
+}
+
+$radius: 16px;
+.header-body-modal
+{
+    position: fixed;
+    top: 10%;
+    width: 400px;
+    left: calc(50% - 200px);
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    .close-modal-btn
+    {
+        background-color: transparent;
+        border: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 21px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .header
+    {
+        padding: 24px;
+        padding-top: 0;
+        box-sizing: border-box;
+        border-radius: $radius $radius 0 0;
+        width: 100%;
+
+        .pokemon-name-header
+        {
+            color: white;
+            opacity: 0.3;
+            font-size: 420%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .pokemon-information-header
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            
+            .pokemon-image
+            {
+                width: 100px;
+            }
+
+            .header-poke-info
+            {
+                .pokemon-id
+                {
+                    font-size: 13px;
+                }
+
+                .pokemon-name
+                {
+                    font-size: 21px;
+                    color: white;
+                }
+                
+                .type-ability-header
+                {
+                    display: flex;
+                    margin-top: 10px;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+
+    .body
+    {
+        background-color: white;
+        width: 400px;
+        border-radius: $radius;
+        padding: 16px;
+        box-sizing: border-box;
+
+        .title-status
+        {
+            font-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<!-- Tela principal do card de pokemóns -->
+<div class="container-card" [ngClass]="'background-type-' + pokemon().type">
+
+    <!-- Descrição do pokemón -->
+    <div class="pokemon-description">
+    
+        <!-- Número do pokemón -->
+        <p class="pokemon-id">#{{pokemon().id}}</p>
+    
+        <!-- Nome do pokemón -->
+        <h1 class="pokemon-name">{{pokemon().name | titlecase}}</h1>
+
+        <!-- Tipo do pokemón -->
+        <div class="type-ability">
+            <poke-badge [type]="pokemon().type"/>
+            <poke-badge [type]="pokemon().ability"/>
+        </div>
+    </div>
+    
+    <!-- Imagem do pokemón -->
+    <img
+        class="pokemon-image"
+        [src]="pokemon().image"
+        [title]="pokemon().name"
+        [alt]="pokemon().name"
+    />
+</div>

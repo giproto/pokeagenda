@@ -1,0 +1,67 @@
+<!-- Título da página principal -->
+<img 
+    class="pokemon-logo"
+    src="/images/pokemon-logo.webp"
+    title="Logo de Pokemón"
+    alt="Logo de Pokemón"
+/>
+
+<!-- Input de busca do Pokemón -->
+<div class="search-input-container">
+
+    <!-- Input -->
+    <input
+        type="text"
+        class="search-input"
+        placeholder="Digite o nome do Pokémon..."
+        [formControl]="searchPokemon"
+    />
+
+    <!-- ícone de busca -->
+    <fa-icon class="search-icon" [icon]="iconSearch" />
+</div>
+
+<!-- Card de lista de Pokemón -->
+<div class="pokemon-list">
+    
+    @for (pokemon of pokemonAgendaList(); track $index) 
+    {
+        <poke-card 
+            [pokemon]="pokemon"
+            (click)="pokemonSelected = pokemon"
+        />
+    }
+
+    <!-- Botão de mostrar mais pokemóns -->
+    @if (searchPokemon?.value?.length <= 0)
+    {
+        <button
+            class="show-more-btn"
+            (click)="getPokemonListView()">Carregar mais pokemóns
+        </button>
+    }
+    
+</div>
+
+<!-- Informativo de não encontrado -->
+@if (pokemonAgendaList().length <=0)
+{
+    <h1 class="not-found-text">Nenhum Pokemón encontrado...</h1>
+}
+
+<!-- Página de carregamento -->
+@if (loading()) 
+{
+    <div class="loader-page">
+        <poke-loader />
+    </div>
+}
+
+<!-- Modal de detalhes do pokemon -->
+@if (pokemonSelected) 
+{
+    <poke-details-modal 
+        [pokemon]="pokemonSelected"
+        (close)="pokemonSelected = null"
+    />
+}

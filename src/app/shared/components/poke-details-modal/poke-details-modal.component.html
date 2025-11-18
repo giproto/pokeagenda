@@ -1,0 +1,62 @@
+<!-- Background de modal  -->
+<div class="background-modal"></div>
+
+<!-- Tela de modal com detalhes dos pokemóns -->
+<div class="header-body-modal" [ngClass]="'background-type-' + pokemon().type">
+
+    <!-- Botao para fechar o modal -->
+    <button class="close-modal-btn"
+        (click)="close.emit()">
+        <fa-icon [icon]="iconClose" />
+    </button>
+
+    <!-- Tela princiapal de header  -->
+    <div class="header">
+    
+        <!-- Nome do pokemón de fundo da header -->
+        <h1 class="pokemon-name-header">{{pokemon().name | titlecase}}</h1>
+
+        <!-- Identificação do pokemón na header -->
+        <div class="pokemon-information-header">
+
+            <!--  Imagem do pokemón na header -->
+            <img
+                class="pokemon-image"
+                [src]="pokemon().image"
+                [title]="pokemon().name"
+                [alt]="pokemon().name"
+            />
+
+            <!-- Nome e ID do pokemón na header -->
+            <div class="header-poke-info">
+
+                <!-- Número do pokemón na header-->
+                <p class="pokemon-id">#{{pokemon().id}}</p>
+
+                <!-- Nome do pokemón na header -->
+                <p class="pokemon-name">{{pokemon().name | titlecase}}</p>
+                
+                <!-- Tipo e habilidade do pokemón na header -->
+                <div class="type-ability-header">
+                    <poke-badge [type]="pokemon().type"/>
+                    <poke-badge [type]="pokemon().ability"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela do corpo de detalhes no modal -->
+    <div class="body">
+
+        <!-- Título de status -->
+        <h1 class="title-status" [ngClass]="'color-type-' + pokemon().type">Status</h1>
+
+        <!-- Component de habilidades -->
+        <poke-ability-value [ability]="'HP'" [quantity]="60" />
+        <poke-ability-value [ability]="'Attack'" [quantity]="65" />
+        <poke-ability-value [ability]="'Defense'" [quantity]="60" />
+        <poke-ability-value [ability]="'Special Attack'" [quantity]="130" />
+        <poke-ability-value [ability]="'special Defense'" [quantity]="75" />
+        <poke-ability-value [ability]="'Speed'" [quantity]="110" />
+    </div>
+</div>
