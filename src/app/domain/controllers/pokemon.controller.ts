@@ -8,7 +8,6 @@ import { PokemonDetail, PokemonEntity } from "../entities/pokemon.entity";
 })
 export class PokemonController 
 {
-    private nextRequest: string;
     private pokemonList: PokemonEntity[] = [];
 
     // * Injects
@@ -20,11 +19,9 @@ export class PokemonController
      */
     public getPokemonListController(): Observable<any>
     {
-        return this._pokemonAPI.getPokemonListApi(this.nextRequest).pipe(
+        return this._pokemonAPI.getPokemonListApi().pipe(
             switchMap(firstResp => 
             {
-                this.nextRequest = firstResp.next;
-
                 const pokemonDetailsRequest = [];
                 for (const pokemon of firstResp.results)
                 {
@@ -42,7 +39,7 @@ export class PokemonController
                     const pokemon = new PokemonEntity();
                     pokemon.id = pokemonDetail.id;
                     pokemon.name = pokemonDetail.name;
-                    pokemon.image = pokemonDetail.sprites.other.dream_world.front_default;
+                    pokemon.image = pokemonDetail.sprites.other["official-artwork"].front_default || pokemonDetail.sprites.other.dream_world.front_default;
                     pokemon.type = pokemonDetail.types[0].type.name;
                     pokemon.ability = pokemonDetail?.types[1]?.type?.name;
                     

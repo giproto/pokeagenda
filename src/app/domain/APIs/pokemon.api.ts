@@ -19,7 +19,7 @@ export class PokemonAPI
      */
     public getPokemonListApi(urlDoParametro?: string): Observable<PokemonListResponseDto>
     {
-        const _urlDaRequest = urlDoParametro ?? `${this.baseURL}pokemon`;
+        const _urlDaRequest = urlDoParametro ?? `${this.baseURL}pokemon?limit=2000`;
 
         return this._httpClient.get<PokemonListResponseDto>(_urlDaRequest);
     }

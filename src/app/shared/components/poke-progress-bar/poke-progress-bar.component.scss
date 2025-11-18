@@ -1,0 +1,21 @@
+$height: 6px;
+$radius: 50px;
+
+.background-bar
+{
+    height: $height;
+    width: 80px;
+    background-color: #eee;
+    border-radius: $radius;
+    position: relative;
+}
+
+.bar
+{
+    height: $height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    border-radius: $radius;
+}

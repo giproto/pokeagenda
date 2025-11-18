@@ -5,4 +5,12 @@
     justify-content: space-between;
     border-bottom: solid 1px #ccc;
     padding: 12px 0;
+
+    .container-values
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 120px;
+    }
 }

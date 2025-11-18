@@ -3,6 +3,18 @@
 
     <!-- Parágrafos com as descrições -->
     <p>{{ ability() | titlecase}}</p>
-    <p>{{ quantity() }}</p>
+    
+    <!-- Values -->
+    <div class="container-values">
+
+        <!-- Progress bar -->
+        <poke-progress-bar 
+            [type]="type()" 
+            [percent]="quantity()" 
+        />
+
+        <!-- Value -->
+        <p>{{ quantity() }}</p>
+    </div>
 </div>
 

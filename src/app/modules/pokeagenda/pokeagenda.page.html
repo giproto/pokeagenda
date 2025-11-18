@@ -23,7 +23,6 @@
 
 <!-- Card de lista de Pokemón -->
 <div class="pokemon-list">
-    
     @for (pokemon of pokemonAgendaList(); track $index) 
     {
         <poke-card 
@@ -31,22 +30,12 @@
             (click)="pokemonSelected = pokemon"
         />
     }
-
-    <!-- Botão de mostrar mais pokemóns -->
-    @if (searchPokemon?.value?.length <= 0)
-    {
-        <button
-            class="show-more-btn"
-            (click)="getPokemonListView()">Carregar mais pokemóns
-        </button>
-    }
-    
 </div>
 
 <!-- Informativo de não encontrado -->
-@if (pokemonAgendaList().length <=0)
+@if (pokemonAgendaList().length <= 0 && !loading())
 {
-    <h1 class="not-found-text">Nenhum Pokemón encontrado...</h1>
+    <h1 class="text-message">Nenhum Pokemón encontrado...</h1>
 }
 
 <!-- Página de carregamento -->
@@ -54,6 +43,7 @@
 {
     <div class="loader-page">
         <poke-loader />
+        <h1 class="text-message">Carregando pokemóns...</h1>
     </div>
 }
 
