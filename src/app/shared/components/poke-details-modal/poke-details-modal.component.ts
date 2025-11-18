@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { PokemonEntity } from '../../../domain/entities/pokemon.entity';
 import { PokeBadgeComponent } from "../poke-badge/poke-badge.component";
 import { PokeAbilityComponent } from "../poke-ability-value/poke-ability-value.component";
@@ -13,9 +13,14 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
     imports: [CommonModule, PokeBadgeComponent, PokeAbilityComponent, FontAwesomeModule]
 })
 
-export class PokeDetailsModal
+export class PokeDetailsModal implements OnInit
 {
     public pokemon = input.required<PokemonEntity>();
     public close = output();
     public iconClose = faCircleXmark;
+
+    ngOnInit(): void 
+    {
+        console.log(this.pokemon());
+    }
 }

@@ -52,11 +52,12 @@
         <h1 class="title-status" [ngClass]="'color-type-' + pokemon().type">Status</h1>
 
         <!-- Component de habilidades -->
-        <poke-ability-value [ability]="'HP'" [quantity]="60" />
-        <poke-ability-value [ability]="'Attack'" [quantity]="65" />
-        <poke-ability-value [ability]="'Defense'" [quantity]="60" />
-        <poke-ability-value [ability]="'Special Attack'" [quantity]="130" />
-        <poke-ability-value [ability]="'special Defense'" [quantity]="75" />
-        <poke-ability-value [ability]="'Speed'" [quantity]="110" />
+        @for (item of pokemon().details; track $index) 
+        {
+            <poke-ability-value 
+                [ability]="item.name"
+                [quantity]="item.value" 
+            />
+        }
     </div>
 </div>

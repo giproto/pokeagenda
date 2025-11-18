@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { PokemonAPI } from "../APIs/pokemon.api";
 import { forkJoin, map, Observable, switchMap } from "rxjs";
-import { PokemonEntity } from "../entities/pokemon.entity";
+import { PokemonDetail, PokemonEntity } from "../entities/pokemon.entity";
 
 @Injectable({
     providedIn: 'root'
@@ -45,6 +45,16 @@ export class PokemonController
                     pokemon.image = pokemonDetail.sprites.other.dream_world.front_default;
                     pokemon.type = pokemonDetail.types[0].type.name;
                     pokemon.ability = pokemonDetail?.types[1]?.type?.name;
+                    
+                    // Pega a lista de stats, e preenche o detalhes do pokemons
+                    pokemon.details = [];
+                    for (const item of pokemonDetail.stats)
+                    {
+                        const detail = new PokemonDetail();
+                        detail.name = item.stat.name;
+                        detail.value = item.base_stat;
+                        pokemon.details.push(detail);
+                    }
     
                     this.pokemonList.push(pokemon);
                 }
@@ -54,5 +64,3 @@ export class PokemonController
         );
     }
 }
-
-// Temos os pokemons - ✅
