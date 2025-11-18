@@ -15,11 +15,10 @@ Este projeto permite navegar por uma lista de Pokémons (usando alguma API públ
 ---
 
 ## 🛠 Tecnologias utilizadas  
-- **Angular** (versão especificar)  
+- **Angular** "^20.3.0" 
 - **TypeScript**  
 - **HTML5**  
-- **SCSS / CSS3**  
-- (Opcional: API de Pokémons — se aplicável, detalhe aqui)  
+- **SCSS / CSS3**   
 - Ferramentas de construção: `npm`, `ng build`, etc.
 
 ---
@@ -28,3 +27,4 @@ Este projeto permite navegar por uma lista de Pokémons (usando alguma API públ
 1. Clone este repositório  
    ```bash
    git clone https://github.com/giproto/pokeagenda.git
+
