@@ -2,6 +2,8 @@
 
 Um aplicativo web para **listagem de Pokémons e exibição de seus detalhes**, construído com Angular, TypeScript, HTML e SCSS.
 
+---
+
 ## 🎯 Visão geral  
 Este projeto permite navegar por uma lista de Pokémons (usando alguma API pública ou dados locais) e visualizar informações detalhadas de cada um (tipo, habilidades, estatísticas etc).  
 É um ótimo demonstrativo de competências em:  
@@ -9,6 +11,8 @@ Este projeto permite navegar por uma lista de Pokémons (usando alguma API públ
 - Estrutura de estilo com SCSS  
 - Consumo de dados (API ou serviço interno)  
 - Interface limpa, responsiva e acessível
+
+---
 
 ## 🛠 Tecnologias utilizadas  
 - **Angular** (versão especificar)  
@@ -18,8 +22,9 @@ Este projeto permite navegar por uma lista de Pokémons (usando alguma API públ
 - (Opcional: API de Pokémons — se aplicável, detalhe aqui)  
 - Ferramentas de construção: `npm`, `ng build`, etc.
 
+---
+
 ## 🚀 Como executar o projeto  
 1. Clone este repositório  
    ```bash
    git clone https://github.com/giproto/pokeagenda.git
-
